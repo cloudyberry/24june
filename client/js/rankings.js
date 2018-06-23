@@ -19,6 +19,10 @@ Template.rankings.helpers({
 		return comms;
 	},
 
+	displayComments: function() {
+		return Session.equals('showCommentsId', this._id);
+	},
+
 });
 
 Template.rankings.events({
@@ -70,6 +74,12 @@ Template.rankings.events({
 		if (Name == thisReviewsVotes) {
 			Bert.alert("You cannot vote for your own review", "danger", "growl-top-right");
 		}
+	},
+		"click #showcomment": function() {
+		//	var thisUser = Meteor.userId();
+		//	var thisReview = Reviews.findOne({_id: this._id})._id;
+		//	var reviewAuthor = Reviews.findOne({_id: this._id}).userId;
+		Session.set('showCommentsId', this._id);
 	},
 
 	/*"click #post-comment": function() {

@@ -27,15 +27,16 @@
 
 		<button type="button" class="btn btn-danger" id="like"><span class="glyphicon glyphicon-thumbs-up"></span> Likes ({{likeScore}})</button>
 		<button type="button" class="btn btn-warning" id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span> Dislikes ({{dislikeScore}})</button>
-		<button type="button" class="btn btn-info" id="comment"><span class="glyphicon glyphicon-comment"></span> Comment</button>
+		<button type="button" class="btn btn-info" id="showcomment"><span class="glyphicon glyphicon-comment"></span> Comment</button>
+		{{# if displayComments}}
 		{{> comments}}
-
+		{{else}}
+		{{commentSect}}
 		<!-- End Review Form-->
-		</div>
 
 
-	{{else}}
-	<!--<h1>No Reviews to display</h1>-->
+	{{/if}}
+	</div>
 	{{/each}}
 
 </template>
