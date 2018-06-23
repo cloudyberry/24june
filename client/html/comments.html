@@ -1,0 +1,19 @@
+<!--Changed format of post-->
+<!--need to add more stuff-->
+<template name="comments">
+{{#if currentUser}}
+
+{{#each comms}}
+
+<div class="comms">
+
+  <p class="regular review-desc">"{{commentPost}}"</p>
+  <p class="meta">Posted by: Year {{year}} from {{school}} on {{date}}</p>
+
+</div> <!--<h1>No Reviews to display</h1> -->
+
+{{/each}}
+
+	{{> commentSect}}
+{{/if}}
+</template>

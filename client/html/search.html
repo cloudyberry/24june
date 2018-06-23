@@ -1,0 +1,200 @@
+<template name="search">
+{{#if nonAdmin}}
+<!--should be available to all users-->
+	<!-- search -->
+	<!--<div id="search-wrap">-->
+		<!-- Easy Search -->
+		<!--<div class="black searchbar">
+			{{> EasySearch.Input index=index attributes=inputAttributes }}
+		</div>-->
+
+<!--searchbar intending to keep: concern is to have modal or not?-->
+<!-- search Form-->
+{{#if searched}}
+	<button class="btn btn-lg btn-info btn-block" type="submit" id="search-more">Search</button>
+{{#each reviews}}
+<!-- Joke -->
+
+<div class="review">
+	<div class="row">
+		<div class=".col-sm-6 .col-md-5 .col-lg-6" id="info">
+			<!--jokeName,semester,recommendation,diff,workload,steepness,jokePost-->
+			<h1 class="review-title">{{reviewName}}</h1>
+			<p class="semester">Taken in: {{semester}}</p>
+			<p class="recommendation">Recommendation Level: {{recommendation}}</p>
+			<p class="diff">Difficulty Level: {{diff}}</p>
+			<p class="workload">Workload: {{workload}}</p>
+			<p class="steepness">Steepness of Bellcurve: {{steepness}}</p>
+
+		</div>
+		<!--keep to know how to click on png-->
+		<!--<div class=".col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0" id="vote">
+			<img src="frown.png" class="smiley" id="frown">
+			<img src="puke.png" class="smiley" id="puke">
+			</div>
+			<div class="row" id="score">
+			<h3 class="count yellow block">{{frownScore}}</h3>
+			<h3 class="count green block">{{pukeScore}}</h3>
+		</div>-->
+	</div>
+
+	<p class="regular review-desc">"{{reviewPost}}"</p>
+	<!--<p class="meta">Posted by: {{author}} on {{date}}</p>-->
+	<p class="meta">Posted by: {{author}}(Year {{year}}) from {{school}} on {{date}}</p>
+
+	<button type="button" class="btn btn-danger" id="like"><span class="glyphicon glyphicon-thumbs-up"></span> Likes ({{likeScore}})</button>
+	<button type="button" class="btn btn-warning" id="dislike"><span class="glyphicon glyphicon-thumbs-down"></span> Dislikes ({{dislikeScore}})</button>
+	<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-comment"></span> Comment</button>
+<!-- End Joke -->
+</div>
+<!--<h1>No Reviews to display</h1>-->
+
+{{/each}}
+{{else}}
+<div id="searchForm-wrap">
+	<center>
+		<form class="search-form">
+
+			<h2 class="searchForm-heading">Search Filters</h2>
+
+			<h6 class="modulecode">Module Code:</h6>
+			<label for="reviewName" class="sr-only">Module Code: Module Name</label>
+			<input type="text" name="reviewName" id="reviewName" class="form-control" placeholder="e.g. CS1231: Discrete Structures" >
+
+			<h6 class="semester">Taken in:</h6>
+			<label for="semester" class="sr-only">Semester taken in: e.g. AY17/18 S1</label>
+			<input type="text" name="semester" id="semester" class="form-control" placeholder="e.g. AY17/18 S1" >
+
+			<h6 class="recommendation">Recommendation Level:</h6>
+								<select class="form-control" id="recommendation" name="recommendation">
+								<option selected>All</option>
+								<option>5 (Being the most recommended)</option>
+								<option>4</option>
+								<option>3</option>
+								<option>2</option>
+								<option>1 (Being the least recommended)</option>
+								</select>
+
+			<h6 class="diff">Difficulty of Module:</h6>
+								<select class="form-control" id="diff" name="diff">
+								<option selected>All</option>
+								<option>Hard</option>
+								<option>Moderate</option>
+								<option>Easy</option>
+								</select>
+
+							<h6 class="workload">Workload of Module:</h6>
+							 <select class="form-control" id="workload" name="workload">
+								<option selected>All</option>
+								<option>High</option>
+								<option>Moderate</option>
+								<option>Low</option>
+							 </select>
+
+							 <h6 class="steepness">Steepness of Bellcurve:</h6>
+							 <select class="form-control" id="steepness" name="steepness">
+								<option selected>All</option>
+								<option>High</option>
+								<option>Moderate</option>
+								<option>Low</option>
+								<option>No bellcurve</option>
+							 </select>
+
+			<button class="btn btn-lg btn-info btn-block" type="submit" id="apply-filters">Apply filters</button>
+
+		</form>
+	</center>
+</div>
+
+
+<!-- End search Form-->
+	  <!--end of modal structure-->
+
+		<!--{{#EasySearch.IfInputEmpty index=index }}
+			<div class="padded examples black">For example "CS1231"</div>
+		{{else}}
+			{{#if resultsCount}}
+				<div class="padded count-results black">{{resultsCount}} results found.</div>
+			{{/if}}
+		{{/EasySearch.IfInputEmpty}}
+		{{#EasySearch.IfSearching index=index }}
+			<div>Searching</div>
+		{{/EasySearch.IfSearching}}
+		<ol class="leaderboard">
+			{{#EasySearch.Each index=index }}
+				{{> User}}
+			{{/EasySearch.Each}}
+		</ol>
+		{{#EasySearch.IfNoResults index=index }}
+			<div class="padded no-results black">No results found</div>
+		{{else}}
+		{{/EasySearch.IfNoResults}}
+		{{> EasySearch.Pagination index=index maxPages=10 }}
+		{{! > EasySearch.LoadMore index=index}}
+		{{#if showMore}}
+			{{> EasySearch.Input name="mini-index" index=index attributes=inputAttributes }}
+			<ul>
+				{{#EasySearch.Each name="mini-index" index=index}}
+					<li>{{name}}</li>
+				{{/EasySearch.Each}}
+			</ul>
+		{{/if}}-->
+		<!-- Easy Search -->
+	<!--</div>-->
+	<!-- End search -->
+{{/if}}
+{{/if}}
+</template>
+
+<template name="User">
+	<li class="user black {{selected}}" id="user-link">
+		<span class="name">{{reviewName}}</span>
+
+
+		{{#if selected}}
+		<div class="reviewInfo">
+				<!--jokeName,semester,recommendation,diff,workload,steepness,jokePost-->
+
+				<div>
+					<span class="posy blue">Semester: {{semester}}</span>
+				</div>
+					<br>
+
+				<div>
+					<span class="posy blue">Recommendation Level: {{recommendation}}</span>
+				</div>
+					<br>
+
+				<div>
+					<span class="posy blue">Difficulty: {{diff}}</span>
+				</div>
+					<br>
+
+			<div>
+				<span class="posy blue">{{reviewPost}}</span>
+			</div>
+				<br>
+
+			<div>
+				<span class="author">Posted by: {{author}} on {{date}}</span>
+			</div>
+				<br>
+
+			<div>
+				<span class="vote-score red">Likes: {{laughScore}}</span>
+			</div>
+				<br>
+
+			<div>
+				<span class="vote-score yellow">Dislikes: {{pukeScore}}</span>
+			</div>
+				<br>
+
+			<div>
+				<span class="vote-score green">Comments: {{pukeScore}}</span>
+			</div>
+
+		</div>
+		{{/if}}
+	</li>
+</template>

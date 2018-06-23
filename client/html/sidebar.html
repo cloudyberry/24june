@@ -1,0 +1,35 @@
+<template name="sidebar">
+	<aside class="sidebar-left">
+	<img src="cookie.png" class="icon">
+	<a class="company-logo" href="/reviews">NUSModRev</a>
+		<div class="sidebar-links">
+
+
+			{{#if currentUser}}
+			{{#if nonAdmin}}
+			<a class="link-red" href="/profile" id="profile-link"><i class="fa fa-user"></i>Profile</a>
+			{{else}}
+			{{/if}}
+			{{else}}
+			{{/if}}
+
+			{{#if nonAdmin}}
+			<a class="link-blue" href="/reviews" id="reviews-link"><i class="material-icons" style="font-size:36px">access_time</i>Latest</a>
+			<a class="link-yellow" href="/rankings" id="rankings-link"><i class="fa fa-trophy"></i>Featured</a><!--Change to featured posts-->
+			<a class="link-green" href="/search" id="search-link"><i class="fa fa-search"></i>Search</a>
+		  {{/if}}
+
+			{{#if admin}}
+			<a class="link-green" href="/unapproved" id="unapproved-link"><i class="fa fa-columns"></i>unapproved</a>
+			<a class="link-blue" href="/approved" id="approved-link"><i class="fa fa-columns"></i>approved</a>
+			{{else}}
+			{{/if}}
+
+			{{#if currentUser}}
+			<a class="link-purple logout" href="#" id="logout-link"><i class="fa fa-sign-out"></i>Logout</a>
+			{{else}}
+			<a class="" href="/" id="login-link"><i class="fa fa-sign-in"></i>Login</a>
+			{{/if}}
+		</div>
+	</aside>
+</template>
