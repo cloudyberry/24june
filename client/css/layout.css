@@ -8,9 +8,12 @@ body {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
   line-height: 1;
-  /*background-image: url("pattern.png"); */
+  background-image: url("colourful.jpg");
+  background-repeat: no-repeat;
+  background-size: 3000px 7000px;
   background-color:#E0FBFC;
 }
+
 
 * {
   -webkit-box-sizing: border-box;

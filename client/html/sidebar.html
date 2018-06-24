@@ -14,9 +14,9 @@
 			{{/if}}
 
 			{{#if nonAdmin}}
-			<a class="link-blue" href="/reviews" id="reviews-link"><i class="material-icons" style="font-size:36px">access_time</i>Latest</a>
-			<a class="link-yellow" href="/rankings" id="rankings-link"><i class="fa fa-trophy"></i>Featured</a><!--Change to featured posts-->
-			<a class="link-green" href="/search" id="search-link"><i class="fa fa-search"></i>Search</a>
+			<a class="link-blue" href="/reviews" id="reviews-link"><span class="glyphicon glyphicon-time" style="font-size:36px"></span>Latest</a>
+			<a class="link-yellow" href="/rankings" id="rankings-link"><span class="glyphicon glyphicon-pushpin" style="font-size:36px"></span>Featured</a><!--Change to featured posts-->
+			<a class="link-green" href="/search" id="search-link"><span class="glyphicon glyphicon-search" style="font-size:36px"></span>Search</a>
 		  {{/if}}
 
 			{{#if admin}}
@@ -26,7 +26,7 @@
 			{{/if}}
 
 			{{#if currentUser}}
-			<a class="link-purple logout" href="#" id="logout-link"><i class="fa fa-sign-out"></i>Logout</a>
+			<a class="link-purple logout" href="#" id="logout-link"><span class="glyphicon glyphicon-log-out" style="font-size:36px"></span>Logout</a>
 			{{else}}
 			<a class="" href="/" id="login-link"><i class="fa fa-sign-in"></i>Login</a>
 			{{/if}}

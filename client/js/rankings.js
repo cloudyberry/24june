@@ -82,6 +82,10 @@ Template.rankings.events({
 		Session.set('showCommentsId', this._id);
 	},
 
+	"click #hide-comment": function() {
+		Session.set('showCommentsId', null);
+	},
+
 	/*"click #post-comment": function() {
 		//id linked to specific joke
 		Meteor.call("addComments", commentPost);
