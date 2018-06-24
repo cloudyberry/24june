@@ -8,10 +8,11 @@ body {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
   line-height: 1;
-  background-image: url("colourful.jpg");
+  /*background-image: url("v1.jpg");
   background-repeat: no-repeat;
-  background-size: 3000px 7000px;
-  background-color:#E0FBFC;
+  background-size: 2000px 2000px;
+  background-color:#E0FBFC;*/
+background: linear-gradient(to bottom, #ccccff 0%, #99ccff 100%);
 }
 
 
